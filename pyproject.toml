@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "project-3"
+version = "0.1.0"
+description = "Python Project for Project 3"
+authors = ["Jacob <jbrandy1@unca.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.29.0"
+fastapi = "^0.110.2"
+black = "^24.4.0"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
