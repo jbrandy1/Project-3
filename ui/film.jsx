@@ -10,23 +10,22 @@ function FilmEntry({ id, title, description }) {
 }
 
 async function main() {
-  const filmsResponse = await fetch("/api/v1/films");
-  const films = await filmsResponse.json();
+
+  const filmId = window.location.pathname.split("/").pop();
+
+  const filmResponse = await fetch(`/api/v1/film/filmId`);
+  const film = await filmResponse.json();
 
   const rootElt = document.getElementById("app");
   const root = createRoot(rootElt);
   root.render(
-    films.map((film) => (
-      <ul>
-        <li>
-          <FilmEntry
-            id={film.id}
-	    title={film.title}
-            description={film.description}
-          />
-        </li>
-      </ul>
-    )),
+    <div>
+      <FilmEntry
+        id={film.film.id}
+        title={film.title}
+        description={film.description}
+      />
+    </div>
   );
 }
 

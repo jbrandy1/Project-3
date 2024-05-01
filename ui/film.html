@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <script defer type="module" src="film.jsx"></script>
+    <link rel="stylesheet" href="styles.css" />
+     <script>
+    	const path = window.location.pathname;
+	
+	const match = path.match(/\/(\d+)$/);
+
+    	// Check if a match is found
+    	if (match) {
+      	// Extract the numbers from the matched group
+      	const id = parseInt(match[1]);
+
+      	// Now, 'id' variable contains the extracted numbers
+      	console.log("ID:", id);
+
+      	// You can use the 'id' variable here as needed
+      	window.filmId = id;
+    	} else {
+      		console.log("No ID found in the path");
+    	}
+     </script>
+  </head>
+
+  <body>
+    <div id="app" />
+    <div>This is Film View (This is from the film.html file)</div>
+  </body>
+</html>
