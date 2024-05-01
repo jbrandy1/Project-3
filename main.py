@@ -45,7 +45,7 @@ async def film(id: int):
     with open(f"ui/dist/film.html") as file:
         return file.read()
 
-
+# Chat reccommended making a get_film route to return a film and all data corresponding
 @app.get("/api/v1/films/{id}", response_class=HTMLResponse)
 async def get_film(id: int):
     async with AsyncSession(engine) as session:
@@ -77,6 +77,22 @@ async def films():
                 }
 	    )
     return results
+
+# Route to delete a film from the database
+@app.delete("/api/v1/film/{id}")
+async def api_v1_film_delete(id: int):
+    Film = await auto_models.get("film")
+
+    async with AsyncSession(engine) as session:
+
+        film = await session.get(Film, id)
+
+        if film:
+            await session.delete(film)
+            await session.commit()
+            return {"ok": True}
+        else:
+            return {"ok": False, "reason": "not found"}
 
 
 app.mount("/", StaticFiles(directory="ui/dist", html=True), name="ui")

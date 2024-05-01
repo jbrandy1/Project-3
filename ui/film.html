@@ -4,6 +4,7 @@
     <script defer type="module" src="film.jsx"></script>
     <link rel="stylesheet" href="styles.css" />
      <script>
+	// Chat GPT gave this as to how to get the id from the path
     	const path = window.location.pathname;
 	
 	const match = path.match(/\/(\d+)$/);
@@ -16,7 +17,7 @@
       	// Now, 'id' variable contains the extracted numbers
       	console.log("ID:", id);
 
-      	// You can use the 'id' variable here as needed
+      	//You can use the 'id' variable here as needed
       	window.filmId = id;
     	} else {
       		console.log("No ID found in the path");
@@ -27,5 +28,6 @@
   <body>
     <div id="app" />
     <div>This is Film View (This is from the film.html file)</div>
+    <a href="/api/v1/films">Back to Films</a>
   </body>
 </html>
