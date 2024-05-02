@@ -21,7 +21,7 @@ async function main() {
         <li>
           <FilmEntry
             id={film.id}
-            title={film.title}
+	    title={film.title}
             description={film.description}
           />
         </li>
